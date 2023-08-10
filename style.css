@@ -1,0 +1,26 @@
+*{
+    background-color: beige;
+}
+
+.container{
+    display: flex;
+    justify-content: space-evenly;
+    border: 1px solid black;
+    margin: 300px 0 0 0;
+}
+
+.container > .column{
+    display: flex;
+    flex:1;
+    justify-content: space-evenly;
+    flex-direction: column;
+    border: 1px solid black;
+    margin: 0;
+}
+
+.column > .row{
+    flex:1;
+    border: 1px solid black;
+    margin: 0;
+    padding: 50px;
+}
