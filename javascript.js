@@ -14,7 +14,40 @@ function generateDivGrid(n){
     }   
 }
 
-generateDivGrid(16);
+function clearDivGrid(){
+    const columns = document.querySelectorAll('.container > .column');
+    columns.forEach((row) => {
+        row.remove();
+    });
+}
+
+
+const button = document.querySelector('button');
+
+button.addEventListener('click', (e) => {
+    const n = prompt("Enter the number of lines for your board (n x n): ");
+    if(n > 100 || n < 1)
+        alert("ERROR: The number must be non-zero, non-negative and lower than 100!!!");
+    else{
+        clearDivGrid();
+        generateDivGrid(n);
+        const columns = document.querySelectorAll('.container > .column');
+        
+        columns.forEach((row) => {
+            row.addEventListener('mouseover', e => {
+                // Math.floor(Math.random() * (max - min) ) + min;
+                const R = Math.floor(Math.random() * (255));
+                const G = Math.floor(Math.random() * (255));
+                const B = Math.floor(Math.random() * (255));
+                e.target.style.cssText = `background-color: rgb(${R}, ${G}, ${B})`;
+            });
+        });
+        return;
+    }
+})
+
+
+
 
 
 
